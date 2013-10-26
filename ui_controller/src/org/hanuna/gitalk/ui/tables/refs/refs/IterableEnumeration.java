@@ -6,7 +6,7 @@ import java.util.Iterator;
 /**
  * @author erokhins
  */
-public class IterableEnumeration<T extends R, R> implements Iterable<T> {
+public class IterableEnumeration<R, T extends R> implements Iterable<T> {
     private final Enumeration<? extends R> enumeration;
 
     public IterableEnumeration(Enumeration<? extends R> enumeration) {

@@ -54,7 +54,7 @@ public class RefTreeTableNode extends AbstractMutableTreeTableNode {
             return selectManager.isSelect(ref.getCommitHash());
         } else {
             boolean select = true;
-            for (RefTreeTableNode children : new IterableEnumeration<RefTreeTableNode, MutableTreeTableNode>(children())) {
+            for (RefTreeTableNode children : new IterableEnumeration<MutableTreeTableNode, RefTreeTableNode>(children())) {
                 if (!children.isSelectNode()) {
                     select = false;
                 }
@@ -67,7 +67,7 @@ public class RefTreeTableNode extends AbstractMutableTreeTableNode {
         if (isRefNode()) {
             selectManager.setSelectCommit(ref.getCommitHash(), select);
         } else {
-            for (RefTreeTableNode children : new IterableEnumeration<RefTreeTableNode, MutableTreeTableNode>(children())) {
+            for (RefTreeTableNode children : new IterableEnumeration<MutableTreeTableNode, RefTreeTableNode>(children())) {
                 children.setSelect(select);
             }
         }
